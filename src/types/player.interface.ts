@@ -4,4 +4,6 @@ export interface PlayerIn {
   str: number;
   speed: number;
   lucky?: number;
+
+  score(): number;
 }

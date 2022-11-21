@@ -1,15 +1,16 @@
 import { Player } from '../models/player.model';
+import { BaseControllerIn } from '../types/base-controller.interface';
 import { PlayerIn } from '../types/player.interface';
+export class PlayerController implements BaseControllerIn<PlayerIn> {
 
-export interface BaseController<T> {
-    data: T[];
-    getAll(): T[];
-    create(prop: T<k>): T;
-}
+    /** 
+     * @prop { public accesor } data  
+     * 
+    */
+    private _data: PlayerIn[] = []
+    get data(): PlayerIn[] { return this._data }
+    set data(_data: PlayerIn[]) { this._data = _data }
 
-export class PlayerController implements BaseController<PlayerIn> {
-
-    private data: PlayerIn[] = []
 
     getAll(): PlayerIn[] {
         return this.data
